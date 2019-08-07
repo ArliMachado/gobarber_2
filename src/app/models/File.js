@@ -6,7 +6,7 @@ require('dotenv').config({
 
 class File extends Model {
   static init(sequelize) {
-    const { DOMAIN, PORT } = process.env;
+    const { APP_URL, PORT } = process.env;
     super.init(
       {
         name: Sequelize.STRING,
@@ -14,7 +14,7 @@ class File extends Model {
         url: {
           type: Sequelize.VIRTUAL,
           get() {
-            return `http://${DOMAIN}:${PORT}/files/${this.path}`;
+            return `http://${APP_URL}:${PORT}/files/${this.path}`;
           },
         },
       },

@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: process.env.NODE_ENV === 'test' ? '.env.test' : '.env',
+});
+
 export default {
-  dsn: 'https://f01f84e63fd44b7e935275ddd1582319@sentry.io/1524257',
+  dsn: process.env.SENTRY_DSN,
 };
